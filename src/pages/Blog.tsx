@@ -1,5 +1,4 @@
-import React from 'react'
-import { useBlog, useBlogs } from '../hooks'
+import { useBlog } from '../hooks'
 import { useParams } from 'react-router-dom';
 import { FullBlog } from '../components/FullBlog';
 import { Appbar } from '../components/Appbar';
@@ -10,7 +9,7 @@ function Blog() {
   const { loading, blog } = useBlog({
     id: id || ""
   });
-  if (loading) {
+  if (loading || !blog) {
     return <div>
       <Appbar />
       <div className='flex justify-center'>
